@@ -13,7 +13,7 @@ import { useCookies } from "react-cookie";
 const PlayerAward = () => {
     const [cookies, setCookie] = useCookies();
     const { playerid } = useParams();
-    const [postData, setPostData] = useState({ player: playerid, sponsor: cookies.user});
+    const [postData, setPostData] = useState({ player: playerid, sponsor: cookies.user.id});
     const dispatch = useDispatch();
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -43,6 +43,7 @@ const PlayerAward = () => {
             <td><img height="60px" width="60px" alt={"award_" + sponsorship.award} src={awardsLookup[sponsorship.award].avatar} /></td>
             <td>{awardsLookup[sponsorship.award].title}</td>
             <td>{sponsorship.dateCreated}</td>
+            <td>{sponsorship.note}</td>
         </tr>
     ));
 
@@ -57,6 +58,8 @@ const PlayerAward = () => {
                         <Form onSubmit={handleSubmit}>
                             <Form.Group>
                                 <Select options={options} onChange={(e) => setPostData({ ...postData, award: e.value })}></Select>
+                                <Form.Label>Notes</Form.Label>
+                                <Form.Control type="textarea" onChange={(e) => setPostData({ ...postData, note: e.target.value })}></Form.Control>
                             </Form.Group>
                             <Button type="submit">Submit</Button>
                         </Form>
@@ -66,6 +69,7 @@ const PlayerAward = () => {
                                     <th>Award</th>
                                     <th>Title</th>
                                     <th>Date</th>
+                                    <th>Description</th>
                                 </tr>
                             </thead>
                             <tbody>
