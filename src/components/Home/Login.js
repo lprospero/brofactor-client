@@ -15,7 +15,7 @@ const Login = () => {
     const user = useSelector((state) => state.users);
     useEffect(() => {
         if (user && user._id) {
-            setCookie("user", { id: user._id, name: user.name, email: user.email }, {
+            setCookie("user", { id: user._id+"", name: user.name, email: user.email }, {
                 path: "/"
             });
         }
