@@ -1,8 +1,11 @@
 import * as api from "../api/players";
+import { IPlayer } from '../models/player';
+import { app, credentials } from '../utils/mongo.client.ts';
 
 export const createPlayer = (player) => async (dispatch) => {
     try {
-        const { data } = await api.createPlayer(player);
+        const user: Realm.User = await app.logIn(credentials);
+        const data = await user.functions.createPlayer(player);
         dispatch({ type: "CREATE_PLAYER", payload: data });
     } catch (e) {
         console.log(`CREATE_PLAYER: ${e}`);
@@ -11,7 +14,8 @@ export const createPlayer = (player) => async (dispatch) => {
 
 export const getPlayers = () => async (dispatch) => {
     try {
-        const { data } = await api.getPlayers();
+        const user: Realm.User = await app.logIn(credentials);
+        const data = await user.functions.getPlayers();
         dispatch({ type: "FETCH_ALL_PLAYERS", payload: data });
     } catch (e) {
         console.log(`FETCH_ALL_PLAYERS: ${e}`);
@@ -20,7 +24,8 @@ export const getPlayers = () => async (dispatch) => {
 
 export const getPlayer = (id) => async (dispatch) => {
     try {
-        const { data } = await api.getPlayer(id);
+        const user: Realm.User = await app.logIn(credentials);
+        const data = await user.functions.getPlayer(id);
         dispatch({ type: "FETCH_PLAYER", payload: data });
     } catch (e) {
         console.log(`FETCH_PLAYER: ${e}`);
@@ -29,7 +34,8 @@ export const getPlayer = (id) => async (dispatch) => {
 
 export const awardPlayer = (sponsorship) => async (dispatch) => {
     try {
-        const { data } = await api.awardPlayer(sponsorship);
+        const user: Realm.User = await app.logIn(credentials);
+        const data = await user.functions.awardPlayer(sponsorship);
         dispatch({ type: "AWARD_PLAYER", payload: data });
     } catch (e) {
         console.log(`AWARD_PLAYER: ${e}`);
