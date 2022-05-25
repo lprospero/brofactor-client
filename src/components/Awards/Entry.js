@@ -14,13 +14,6 @@ const Entry = () => {
     };
     const awards = useSelector((state) => state.awards);
 
-    const options = [];
-    awards.map(award => (
-        options.push(
-            { value: award._id, label: <div><img alt={ award._id } src={award.avatar} height="30px" width="30px" />&nbsp;{ award.title }</div> }
-        )
-    ));
-
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Group>
