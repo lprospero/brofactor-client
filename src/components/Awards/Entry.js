@@ -30,8 +30,8 @@ const Entry = () => {
                 <Form.Control onChange={(e) => setPostData({ ...postData, experience: e.target.value })}></Form.Control>
                 <Form.Label>Type</Form.Label>
                 <Form.Control onChange={(e) => setPostData({ ...postData, type: e.target.value })}></Form.Control>
-                <Form.Label>Award</Form.Label>
-                <Select options={ options }></Select>
+                <Form.Label>Description</Form.Label>
+                <Form.Control onChange={(e) => setPostData({ ...postData, note: e.target.value })}></Form.Control>
                 <Form.Label>Avatar</Form.Label>
                 <FileBase type="file" multiple={ false } onDone={({ base64 }) => setPostData({ ...postData, avatar: base64 })}></FileBase>
             </Form.Group>
