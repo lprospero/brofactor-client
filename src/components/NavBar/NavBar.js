@@ -10,7 +10,7 @@ const NavBar = () => {
     if (cookies.user) {
         return (
             <div className="bro-nav">
-                <Navbar bg="dark" variant="dark">
+                <Navbar>
                     <Nav className="me-auto">
                         <Navbar.Brand as={Link} to="/">Brofactor</Navbar.Brand>
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
@@ -28,8 +28,8 @@ const NavBar = () => {
         );
     } else {
         return (
-            <div class="bro-nav">
-                <Navbar bg="dark" variant="dark">
+            <div className="bro-nav">
+                <Navbar>
                     <Nav className="me-auto">
                         <Navbar.Brand as={Link} to="/">Brofactor</Navbar.Brand>
                         <Nav.Link as={Link} to="/">Home</Nav.Link>

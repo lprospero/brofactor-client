@@ -3,7 +3,7 @@ const playersReducer = (players = [], action) => {
         case "FETCH_ALL_PLAYERS":
             return action.payload;
         case "CREATE_PLAYER":
-            return [...players, action.payload];
+            return action.payload;
         case "FETCH_PLAYER":
             return action.payload;
         case "AWARD_PLAYER":

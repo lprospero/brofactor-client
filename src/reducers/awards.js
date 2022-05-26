@@ -3,7 +3,7 @@ const awardsReducer = (awards = [], action) => {
         case "FETCH_ALL_AWARDS":
             return action.payload;
         case "CREATE_AWARD":
-            return [...awards, action.payload];
+            return action.payload;
         default:
             return awards;
     }
