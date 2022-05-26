@@ -1,5 +1,13 @@
+.bro-nav {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+}
+
 .navbar-nav  {
-    margin-left: 20px
+    margin-left: 20px;
 }
 
 .bro-content {
@@ -7,13 +15,28 @@
     padding: 10px;
 }
 
-.bro-players, .bro-awards {
+.bro-players, .bro-awards, .bro-form {
     background-color: #f9fbf9;
     border-radius: 10px;
-    border: 1px solid gray;
+    border: 2px solid rgb(47, 47, 47);
     padding: 10px;
+    width: 42em;
+    margin: auto;
 }
 
 .bro-players > .table, .bro-awards > .table {
     margin-bottom: 0;
+    margin: auto;
+    width: 40em;
+}
+
+.bro-player > .card {
+    margin: auto;
+}
+
+.bro-avatar {
+    padding: 4px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    margin-bottom: 10px;
 }

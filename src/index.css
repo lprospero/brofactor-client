@@ -4,7 +4,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #242121;
-    background-color: #e3eada
+    background-image: linear-gradient(#ababab 1px, transparent 1px), linear-gradient(to right, #ababab 1px, transparent 1px);
+    background-size: 87px 87px;
+    background-color: #556271;
 }
 
 code {

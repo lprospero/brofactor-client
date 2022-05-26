@@ -1,39 +1,42 @@
-import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import React, {useState } from "react";
+import { Button, Form, Alert } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { createPlayer } from "../../actions/players";
-import Players from "./Players";
 import FileBase from "react-file-base64";
 
 const Entry = () => {
     const [postData, setPostData] = useState({});
+    const [isTyping, setIsTyping] = useState(false);
     const dispatch = useDispatch();
     const handleSubmit = (e) => {
+        setIsTyping(false);
         e.preventDefault();
+        e.target.reset();
         dispatch(createPlayer(postData));
     };
-    const players = useSelector((state) => state.players);
+    const player = useSelector((state) => state.players);
 
-    const options = [];
-    players.map(player => (
-        options.push(
-            { value: player._id, label: <div><img alt={ player._id } src={player.avatar} height="30px" width="30px" />&nbsp;{ player.title }</div> }
-        )
-    ));
+    //TODO: Fix
+    const banner = player && player.name && !isTyping ? (
+        <Alert key="success" variant="success">
+            {player.name} was successfully created!
+        </Alert>
+    ) : null;
 
     return (
-        <div>
-            <Players />
+        <div className="bro-form">
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Name</Form.Label>
-                    <Form.Control onChange={(e) => setPostData({ ...postData, name: e.target.value })}></Form.Control>
+                    <Form.Control onChange={(e) => { setPostData({ ...postData, name: e.target.value }); setIsTyping(true); }}></Form.Control>
                     <Form.Label>Email</Form.Label>
-                    <Form.Control onChange={(e) => setPostData({ ...postData, email: e.target.value })}></Form.Control>
+                    <Form.Control onChange={(e) => { setPostData({ ...postData, email: e.target.value }); setIsTyping(true); }}></Form.Control>
                     <Form.Label>Password</Form.Label>
-                    <Form.Control onChange={(e) => setPostData({ ...postData, password: e.target.value })}></Form.Control>
-                    <Form.Label>Avatar</Form.Label>
-                    <FileBase type="file" multiple={ false } onDone={({ base64 }) => setPostData({ ...postData, avatar: base64 })}></FileBase>
+                    <Form.Control onChange={(e) => { setPostData({ ...postData, password: e.target.value }); setIsTyping(true); }}></Form.Control>
+                    <Form.Label>Avatar</Form.Label><br />
+                    <div className="bro-avatar">
+                        <FileBase type="file" multiple={false} onDone={({ base64 }) => { setPostData({ ...postData, avatar: base64 }); setIsTyping(true); }}></FileBase>
+                    </div>
                 </Form.Group>
                 <Button type="submit">Submit</Button>
             </Form>
