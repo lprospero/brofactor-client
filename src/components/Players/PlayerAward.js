@@ -42,7 +42,7 @@ const PlayerAward = () => {
         <tr key={"award_" + sponsorship.award + "_" + sponsorship.dateCreated}>
             <td><img height="60px" width="60px" alt={"award_" + sponsorship.award} src={awardsLookup[sponsorship.award].avatar} /></td>
             <td>{awardsLookup[sponsorship.award].title}</td>
-            <td>{sponsorship.dateCreated}</td>
+            <td>{sponsorship.dateCreated.toString()}</td>
             <td>{sponsorship.note}</td>
         </tr>
     ));
