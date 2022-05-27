@@ -1,5 +1,4 @@
 import * as api from "../api/players";
-import { IPlayer } from '../models/player';
 import { app, credentials } from '../utils/mongo.client.ts';
 
 export const createPlayer = (player) => async (dispatch) => {
