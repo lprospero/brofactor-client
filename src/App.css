@@ -15,13 +15,36 @@
     padding: 10px;
 }
 
-.bro-players, .bro-awards, .bro-form {
-    background-color: #f9fbf9;
+.bro-home {
+    background-color: #e9f0e9;
     border-radius: 10px;
     border: 2px solid rgb(47, 47, 47);
+    padding: 20px;
+    margin: auto;
+}
+
+.bro-players, .bro-awards, .bro-form, .bro-player-awards, .bro-comment, .bro-welcome, .bro-profile, .bro-form.col {
+    background-color: #f9fcff;
+    border-radius: 10px;
+    border: 2px solid rgb(53, 53, 53);
     padding: 10px;
     width: 42em;
     margin: auto;
+    box-shadow: 1px 1px 3px black, 0 0 5px gray, 0 0 2px white;
+}
+
+.bro-players, .bro-awards, .bro-form, .bro-player-awards, .bro-comment, .bro-welcome {
+    width: 42em;
+    margin: auto;
+}
+
+.bro-comment {
+    text-align: center;
+}
+
+.bro-comment, .bro-welcome {
+    margin-bottom: 5px;
+    background-color: #ffe036;
 }
 
 .bro-players > .table, .bro-awards > .table {
@@ -40,3 +63,5 @@
     border-radius: 5px;
     margin-bottom: 10px;
 }
+
+

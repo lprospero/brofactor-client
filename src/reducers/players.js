@@ -8,6 +8,8 @@ const playersReducer = (players = [], action) => {
             return action.payload;
         case "AWARD_PLAYER":
             return action.payload;
+        case "CLEAR_PLAYERS":
+            return [];
         default:
             return players;
     }

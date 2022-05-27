@@ -20,3 +20,11 @@ export const getAwards = () => async (dispatch) => {
         console.log(`FETCH_ALL_AWARDS: ${e}`);
     }
 }
+
+export const clearAwards = () => async (dispatch) => {
+    try {
+        dispatch({ type: "CLEAR_AWARDS", payload: [] });
+    } catch (e) {
+        console.log(`CLEAR_AWARDS: ${e}`);
+    }
+}

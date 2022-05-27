@@ -41,3 +41,11 @@ export const awardPlayer = (sponsorship) => async (dispatch) => {
         console.log(`AWARD_PLAYER: ${e}`);
     }
 }
+
+export const clearPlayers = () => async (dispatch) => {
+    try {
+        dispatch({ type: "CLEAR_PLAYERS", payload: [] });
+    } catch (e) {
+        console.log(`CLEAR_PLAYERS: ${e}`);
+    }
+}
