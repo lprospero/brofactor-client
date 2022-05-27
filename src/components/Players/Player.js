@@ -13,6 +13,7 @@ const Player = () => {
     const player = useSelector((state) => state.players);
     const [cookies, setCookie] = useCookies();
     const hasContent = player && player.name;
+
     const placeholder = !hasContent ? (
         <Card style={{ width: '18rem' }}>
             <Card.Body>
@@ -32,19 +33,19 @@ const Player = () => {
         player.awards
             .filter(award => award.sponsor !== cookies.user.id)
             .map(({ note, dateCreated }) => {
-            return (
-                <div key={dateCreated.toString()}  className="bro-comment" style={{ marginBottom: "5px" }}>
-                        <i>"{note}"</i>
-                </div>
-            )
-        })
-    ).reverse() : null;
+                return (
+                    <div key={dateCreated.toString()}  className="bro-comment" style={{ marginBottom: "5px" }}>
+                            <i>"{note}"</i>
+                    </div>
+                )
+            })
+        ).reverse() : null;
 
     return (
-        <div >
+        <div className="bro-player">
             {placeholder}
             <Fade in={!!hasContent}>
-                <div className="bro-player">
+                <div>
                     <div className="bro-profile" style={{ marginBottom: "10px" }}>
                         <Container>
                             <Row>
