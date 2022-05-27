@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { Card, Placeholder, Fade, Image } from "react-bootstrap";
+import { Card, Placeholder, Fade, Image, Container, Row, Col } from "react-bootstrap";
 import { useCookies } from "react-cookie";
 
 
@@ -28,12 +28,37 @@ const Player = () => {
         </Card>
     ): null;
 
+    const playerAwards = player && player.name ? (
+        player.awards
+            .filter(award => award.sponsor !== cookies.user.id)
+            .map(({ note, dateCreated }) => {
+            return (
+                <div key={dateCreated.toString()}  className="bro-comment" style={{ marginBottom: "5px" }}>
+                        <i>"{note}"</i>
+                </div>
+            )
+        })
+    ).reverse() : null;
+
     return (
-        <div className="bro-player">
+        <div >
             {placeholder}
             <Fade in={!!hasContent}>
-                <div className="bro-profile">
-                    <Image rounded height="100px" width="100px" className="bro-pic" src={player.avatar} />
+                <div className="bro-player">
+                    <div className="bro-profile" style={{ marginBottom: "10px" }}>
+                        <Container>
+                            <Row>
+                                <Col md="auto">
+                                    <Image rounded height="100px" width="100px" className="bro-pic" src={player.avatar} />
+                                </Col>
+                                <Col>
+                                    <h2>{player.name}</h2>{player.email}
+                                </Col>
+                            </Row>
+                        
+                        </Container>
+                    </div>
+                    {playerAwards}
                 </div>
             </Fade> 
         </div>
