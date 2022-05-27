@@ -4,6 +4,8 @@ const awardsReducer = (awards = [], action) => {
             return action.payload;
         case "CREATE_AWARD":
             return action.payload;
+        case "CLEAR_AWARDS":
+            return [];
         default:
             return awards;
     }

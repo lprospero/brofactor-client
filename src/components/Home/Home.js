@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
-import { getPlayer } from "../../actions/players";
+import { getPlayer, clearPlayers } from "../../actions/players";
 import { getAwards } from "../../actions/awards";
 import Login from "./Login";
 import Player from "../Players/Player";
@@ -36,20 +36,26 @@ const Home = () => {
             dispatch(getPlayer(cookies.user.id));
         }
         dispatch(getAwards());
+        return () => {
+            dispatch(clearPlayers());
+        }
     }, [dispatch, cookies]);
     const awards = useSelector((state) => state.awards);
     const player = useSelector((state) => state.players);
 
     let awardsLookup = {};
-    awards.map(award => {
-        awardsLookup[award._id] = {
-            avatar: award.avatar,
-            title: award.title,
-            experience: award.experience
-        };
-    });
-
+    if (awards && awards.length > 0) {
+        awards.map(award => {
+            awardsLookup[award._id] = {
+                avatar: award.avatar,
+                title: award.title,
+                experience: award.experience
+            };
+        });
+    }
+    
     let experience = 0;
+    let notes = [];
     const playerAwards = {};
     if (player && player.awards && Object.keys(awardsLookup).length > 0) {
         for (let i in player.awards) {
@@ -58,13 +64,26 @@ const Home = () => {
             } else {
                 playerAwards[player.awards[i].award] = 1;
             }
+            if (player.awards[i].note) {
+                notes.push(player.awards[i].note);
+            }
             experience += awardsLookup[player.awards[i].award].experience;
         }
     }
-    const level = getLevel(experience);
-    console.log(experience);
-    console.log(level);
 
+    const welcome = experience === 0 ? (
+        <div className="bro-welcome">
+            <h2>Welcome!</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    ): null;
+
+    const level = getLevel(experience);
+    const randomNote = notes && notes.length > 0 ? (
+        <div className="bro-comment">
+            <i>"{notes[Math.floor(Math.random() * notes.length)]}"</i>
+        </div>
+    ) : null;
 
     const rows = [];
     for (let award in playerAwards) {
@@ -79,24 +98,21 @@ const Home = () => {
 
     if (cookies.user) {
         return (
-            <Container>
-                <Row className="bro-row">
-                    <Col className="bro-player-col">
-                        <Player />
-                    </Col>
-                    <Col className="bro-form">
-                        <div className="bro-level">
-                            <h2>Level {level.level}</h2>
-                            <ProgressBar now={level.progress} />
-                        </div>
-                        <Table>
-                            <tbody>
-                                {rows}
-                            </tbody>
-                        </Table>
-                    </Col>
-                </Row>
-            </Container>
+            <div>
+                { welcome }
+                { randomNote }
+                <div className="bro-player-awards">
+                    <div className="bro-level">
+                        <h2>Level {level.level}</h2>
+                        <ProgressBar now={level.progress} />
+                    </div>
+                    <Table>
+                        <tbody>
+                            {rows}
+                        </tbody>
+                    </Table>
+                </div>
+            </div>
         );
     } else {
         return (<Login />)

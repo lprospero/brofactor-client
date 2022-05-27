@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { Card, Placeholder, Fade } from "react-bootstrap";
+import { Card, Placeholder, Fade, Image } from "react-bootstrap";
 import { useCookies } from "react-cookie";
 
 
@@ -32,13 +32,9 @@ const Player = () => {
         <div className="bro-player">
             {placeholder}
             <Fade in={!!hasContent}>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={player.avatar} />
-                    <Card.Body>
-                        <Card.Title>{player.name}</Card.Title>
-                        <Card.Text>{player.email}</Card.Text>
-                    </Card.Body>
-                </Card>
+                <div className="bro-profile">
+                    <Image rounded height="100px" width="100px" className="bro-pic" src={player.avatar} />
+                </div>
             </Fade> 
         </div>
     );
