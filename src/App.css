@@ -28,6 +28,10 @@
     border-radius: 10px;
     border: 2px solid rgb(53, 53, 53);
     padding: 10px;
+    box-shadow: 1px 1px 3px black, 0 0 5px gray, 0 0 2px white;
+}
+
+.bro-players, .bro-awards, .bro-form, .bro-player-awards, .bro-comment, .bro-welcome {
     width: 42em;
     margin: auto;
     box-shadow: 1px 1px 3px black, 0 0 5px gray, 0 0 2px white;
@@ -36,6 +40,15 @@
 .bro-players, .bro-awards, .bro-form, .bro-player-awards, .bro-comment, .bro-welcome {
     width: 42em;
     margin: auto;
+}
+
+.bro-comment {
+    text-align: center;
+}
+
+.bro-comment, .bro-welcome {
+    margin-bottom: 5px;
+    background-color: #ffe036;
 }
 
 .bro-comment {

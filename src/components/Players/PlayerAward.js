@@ -36,14 +36,16 @@ const PlayerAward = () => {
             title: award.title,
         };
     });
-    const rows = Object.keys(awardsLookup).length > 0 && player.awards && player.awards.filter(sponsorship => sponsorship.sponsor === cookies.user.id).map(sponsorship => (
-        <tr key={"award_" + sponsorship.award + "_" + sponsorship.dateCreated}>
-            <td><img height="60px" width="60px" alt={"award_" + sponsorship.award} src={awardsLookup[sponsorship.award].avatar} /></td>
-            <td>{awardsLookup[sponsorship.award].title}</td>
-            <td>{sponsorship.dateCreated.toString()}</td>
-            <td>{sponsorship.note}</td>
-        </tr>
-    ));
+    const rows = Object.keys(awardsLookup).length > 0 && player.awards && player.awards
+        .filter(sponsorship => sponsorship.sponsor === cookies.user.id)
+        .map(sponsorship => (
+            <tr key={"award_" + sponsorship.award + "_" + sponsorship.dateCreated}>
+                <td><img height="60px" width="60px" alt={"award_" + sponsorship.award} src={awardsLookup[sponsorship.award].avatar} /></td>
+                <td>{awardsLookup[sponsorship.award].title}</td>
+                <td>{sponsorship.dateCreated.toString()}</td>
+                <td>{sponsorship.note}</td>
+            </tr>
+        )).reverse();
 
     return (
         <div>
@@ -72,7 +74,7 @@ const PlayerAward = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {rows}
+                                { rows }
                             </tbody>
                         </Table>
                     </Col>
