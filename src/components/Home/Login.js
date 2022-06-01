@@ -23,7 +23,7 @@ const Login = () => {
 
     if (user.error) {
         return (
-            <div>
+            <div className="bro-login">
                 <Alert key="danger" variant="danger">
                     {user.error}
                 </Alert>
@@ -40,14 +40,14 @@ const Login = () => {
         );
     } else {
         return (
-            <div>
+            <div className="bro-login">
                 <Form onSubmit={handleSubmit}>
                     <Form.Group>
                         <Form.Label>Email</Form.Label>
                         <Form.Control onChange={(e) => setPostData({ ...postData, email: e.target.value })}></Form.Control>
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" onChange={(e) => setPostData({ ...postData, password: e.target.value })}></Form.Control>
-                    </Form.Group>
+                    </Form.Group><br />
                     <Button type="submit">Submit</Button>
                 </Form>
             </div>
