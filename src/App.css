@@ -23,7 +23,7 @@
     margin: auto;
 }
 
-.bro-players, .bro-awards, .bro-form, .bro-player-awards, .bro-comment, .bro-welcome, .bro-profile, .bro-form.col {
+.bro-players, .bro-awards, .bro-form, .bro-player-awards, .bro-comment, .bro-welcome, .bro-profile, .bro-form.col, .bro-login {
     background-color: #f9fcff;
     border-radius: 10px;
     border: 2px solid rgb(53, 53, 53);
@@ -31,7 +31,7 @@
     box-shadow: 1px 1px 3px black, 0 0 5px gray, 0 0 2px white;
 }
 
-.bro-players, .bro-awards, .bro-form, .bro-player-awards, .bro-comment, .bro-welcome {
+.bro-players, .bro-awards, .bro-form, .bro-player-awards, .bro-comment, .bro-welcome, .bro-login {
     width: 42em;
     margin: auto;
     box-shadow: 1px 1px 3px black, 0 0 5px gray, 0 0 2px white;
