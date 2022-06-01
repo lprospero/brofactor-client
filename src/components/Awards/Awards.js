@@ -60,6 +60,16 @@ const Awards = () => {
         </Container>
     ) : null;
 
+    let awardRows = awards && awards.length > 0 && awards.map(award => (
+        <tr key={"award_" + award._id}>
+            <td><img height="60px" width="60px" alt={"award_" + award._id} src={award.avatar} /></td>
+            <td><Link to={"/award/" + award._id}>{award.title}</Link></td>
+            <td>{award.experience}</td>
+            <td>{award.type}</td>
+            <td>{award.note}</td>
+        </tr>
+    ))
+
     return (
         <div>
             {placeholder}
@@ -76,15 +86,7 @@ const Awards = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {awards.map(award => (
-                                <tr key={ "award_"+award._id }>
-                                    <td><img height="60px" width="60px" alt={"award_" + award._id} src={award.avatar} /></td>
-                                    <td><Link to={"/award/"+award._id}>{award.title}</Link></td>
-                                    <td>{award.experience}</td>
-                                    <td>{award.type}</td>
-                                    <td>{award.note}</td>
-                                </tr>
-                            ))}
+                            {awardRows}
                         </tbody>
                     </Table>
                 </div>
