@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { awardPlayer, getPlayer } from "../../actions/players";
+import { awardPlayer, getPlayer, clearPlayers } from "../../actions/players";
 import { getAwards } from "../../actions/awards";
 import { useDispatch } from 'react-redux';
 import { Form, Button, Container, Col, Row, Table } from "react-bootstrap";
@@ -21,6 +21,9 @@ const PlayerAward = () => {
     useEffect(() => {
         dispatch(getAwards());
         dispatch(getPlayer(playerid));
+        return () => {
+            dispatch(clearPlayers());
+        }
     }, [dispatch, playerid]);
     const awards = useSelector((state) => state.awards);
     const player = useSelector((state) => state.players);
