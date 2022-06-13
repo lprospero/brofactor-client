@@ -41,7 +41,8 @@ const Home = () => {
         }
     }, [dispatch, cookies]);
     const awards = useSelector((state) => state.awards);
-    const player = useSelector((state) => state.players);
+    let player = null;
+    player = useSelector((state) => state.players);
 
     let awardsLookup = {};
     if (awards && awards.length > 0) {
@@ -79,7 +80,7 @@ const Home = () => {
     ): null;
 
     const level = getLevel(experience);
-    const randomNote = notes && notes.length > 0 ? (
+    const randomNote = player && notes && notes.length > 0 ? (
         <div className="bro-comment">
             <i>"{notes[Math.floor(Math.random() * notes.length)]}"</i>
         </div>
