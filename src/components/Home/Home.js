@@ -11,12 +11,17 @@ function getLevel(experience) {
     if (experience >= 5 && experience < 10) {
         return {
             level: 2,
-            progress: (experience-5)/5 * 100
+            progress: (experience - 5) / 5 * 100
         }
     } else if (experience >= 10 && experience < 20) {
         return {
             level: 3,
             progress: (experience - 10) / 10 * 100
+        }
+    } else if (experience >= 20 && experience < 35) {
+        return {
+            level: 4,
+            progress: (experience - 20) / 20 * 100
         }
     } else {
         return {
@@ -51,56 +56,58 @@ const Home = () => {
             clearInterval(interval);
         }
     }, [dispatch, cookies]);
+
     const awards = useSelector((state) => state.awards);
     let player = null;
     player = useSelector((state) => state.players);
 
-    let awardsLookup = {};
-    if (awards && awards.length > 0) {
-        awards.map(award => {
-            awardsLookup[award._id] = {
-                avatar: award.avatar,
-                title: award.title,
-                experience: award.experience
-            };
-        });
-    }
-    
-    let experience = 0;
-    const playerAwards = {};
-    if (player && player.awards && Object.keys(awardsLookup).length > 0) {
-        for (let i in player.awards) {
-            if (playerAwards[player.awards[i].award]) {
-                playerAwards[player.awards[i].award]++;
-            } else {
-                playerAwards[player.awards[i].award] = 1;
-            }
-            if (player.awards[i].note) {
-                notes.push(player.awards[i].note);
-            }
-            experience += awardsLookup[player.awards[i].award].experience;
-        }
-    }
-
-    const level = getLevel(experience);
-    const randomNote = player && notes && notes.length > 0 ? (
-        <div className="bro-comment">
-            <i>"{notes[Math.floor(Math.random() * notes.length)]}"</i>
-        </div>
-    ) : null;
-
-    const rows = [];
-    for (let award in playerAwards) {
-        rows.push(
-            <tr key={"award_" + award}>
-                <td><img height="60px" width="60px" alt={"award_" + award} src={awardsLookup[award].avatar} /></td>
-                <td>{awardsLookup[award].title}</td>
-                <td>{playerAwards[award]}</td>
-            </tr>
-        );
-    }
-
     if (cookies.user) {
+
+        let awardsLookup = {};
+        if (awards && awards.length > 0) {
+            awards.map(award => {
+                awardsLookup[award._id] = {
+                    avatar: award.avatar,
+                    title: award.title,
+                    experience: award.experience
+                };
+            });
+        }
+
+        let experience = 0;
+        const playerAwards = {};
+        if (player && player.awards && Object.keys(awardsLookup).length > 0) {
+            for (let i in player.awards) {
+                if (playerAwards[player.awards[i].award]) {
+                    playerAwards[player.awards[i].award]++;
+                } else {
+                    playerAwards[player.awards[i].award] = 1;
+                }
+                if (player.awards[i].note) {
+                    notes.push(player.awards[i].note);
+                }
+                experience += awardsLookup[player.awards[i].award].experience;
+            }
+        }
+
+        const level = getLevel(experience);
+        const randomNote = player && notes && notes.length > 0 ? (
+            <div className="bro-comment">
+                <i>"{notes[Math.floor(Math.random() * notes.length)]}"</i>
+            </div>
+        ) : null;
+
+        const rows = [];
+        for (let award in playerAwards) {
+            rows.push(
+                <tr key={"award_" + award}>
+                    <td><img height="60px" width="60px" alt={"award_" + award} src={awardsLookup[award].avatar} /></td>
+                    <td>{awardsLookup[award].title}</td>
+                    <td>{playerAwards[award]}</td>
+                </tr>
+            );
+        }
+
         if (experience === 0 && showLoader) {
             return (
                 <div className="bro-spinner">
