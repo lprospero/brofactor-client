@@ -18,6 +18,7 @@ const Login = () => {
             setCookie("user", { id: user._id+"", name: user.name, email: user.email }, {
                 path: "/"
             });
+            document.location = "";
         }
     }, [user]);
 
