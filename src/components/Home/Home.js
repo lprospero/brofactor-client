@@ -11,12 +11,17 @@ function getLevel(experience) {
     if (experience >= 5 && experience < 10) {
         return {
             level: 2,
-            progress: (experience-5)/5 * 100
+            progress: (experience - 5) / 5 * 100
         }
     } else if (experience >= 10 && experience < 20) {
         return {
             level: 3,
             progress: (experience - 10) / 10 * 100
+        }
+    } else if (experience >= 20 && experience < 35) {
+        return {
+            level: 4,
+            progress: (experience - 20) / 20 * 100
         }
     } else {
         return {
