@@ -12,7 +12,8 @@ import { useCookies } from "react-cookie";
 const PlayerAward = () => {
     const [cookies, setCookie] = useCookies();
     const { playerid } = useParams();
-    const [postData, setPostData] = useState({ player: playerid, sponsor: cookies.user.id});
+    const [postData, setPostData] = useState({ player: playerid, sponsor: cookies.user.id });
+    const isUserSameAsPlayer = cookies.user.id === playerid;
     const dispatch = useDispatch();
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -63,9 +64,9 @@ const PlayerAward = () => {
                                 <Form.Label>Award</Form.Label>
                                 <Select isSearchable options={options} onChange={(e) => setPostData({ ...postData, award: e.key })}></Select>
                                 <Form.Label>Notes</Form.Label>
-                                <Form.Control type="textarea" onChange={(e) => setPostData({ ...postData, note: e.target.value  })}></Form.Control>
+                                <Form.Control disabled={ isUserSameAsPlayer } type="textarea" onChange={(e) => setPostData({ ...postData, note: e.target.value  })}></Form.Control>
                             </Form.Group><br />
-                            <Button type="submit">Submit</Button>
+                            <Button disabled={ isUserSameAsPlayer } type="submit">Submit</Button>
                         </Form>
                         <Table>
                             <thead>
