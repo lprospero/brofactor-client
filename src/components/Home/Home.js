@@ -39,7 +39,7 @@ const Home = () => {
         const interval = setInterval(() => {
             setRandomNumber(Math.floor(Math.random() * 100 + 1));
             setShowLoader(false);
-        }, 5000
+        }, 10000
         );
         
         if (cookies && cookies.user) {
@@ -117,7 +117,7 @@ const Home = () => {
                     </div>
                 </div>
             );
-        } else if (experience !== 0) {
+        } else if (experience !== 0) {            
             return (
                 <div>
                     {randomNote}
