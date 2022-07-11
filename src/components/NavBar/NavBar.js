@@ -5,7 +5,12 @@ import { useCookies } from "react-cookie";
 
 
 const NavBar = () => {
-    const [cookies, setCookie] = useCookies();
+    const [cookies, setCookie, removeCookie] = useCookies();
+
+    const handleSignout = (e) => {
+        removeCookie("user");
+        document.location = "";
+    }
 
     if (cookies.user) {
         return (
@@ -22,6 +27,9 @@ const NavBar = () => {
                             <NavDropdown.Item as={Link} to="/awards">List</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/awards/new">New</NavDropdown.Item>
                         </NavDropdown>
+                    </Nav>
+                    <Nav>
+                        <Nav.Link onClick={handleSignout} as={Link} to="/">Signout</Nav.Link>
                     </Nav>
                 </Navbar>
             </div>
