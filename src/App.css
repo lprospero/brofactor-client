@@ -61,3 +61,12 @@
     border-radius: 5px;
     margin-bottom: 10px;
 }
+
+.bro-spinner {
+    margin: auto;
+    width: 10em;
+}
+
+.bro-spinner > .component{
+    margin-top: 5em;
+}
