@@ -39,7 +39,7 @@ const NavBar = () => {
             <div className="bro-nav">
                 <Navbar>
                     <Nav className="me-auto">
-                        <Navbar.Brand as={Link} to="/">Brofactor</Navbar.Brand>
+                        <Navbar.Brand as={Link} to="/"><span className="bro-b">B</span><span className="bro-rofactor">ro<strong>factor</strong></span></Navbar.Brand>
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                     </Nav>
                 </Navbar>
