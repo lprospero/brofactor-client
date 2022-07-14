@@ -34,19 +34,19 @@ const Players = () => {
             <Row>
                 <Col>
                     <Placeholder as="p" animation="glow">
-                        <Placeholder xs={12} size="lg" bg="danger" />
-                        <Placeholder xs={12} size="lg" bg="danger" />
-                        <Placeholder xs={12} bg="danger" />
-                        <Placeholder xs={12} size="sm" bg="danger" />
-                        <Placeholder xs={12} size="sm" bg="danger" />
-                        <Placeholder xs={12} size="sm" bg="danger" />
-                        <Placeholder xs={12} size="sm" bg="danger" />
-                        <Placeholder xs={12} size="xs" bg="danger" />
-                        <Placeholder xs={12} size="xs" bg="danger" />
-                        <Placeholder xs={12} size="xs" bg="danger" />
-                        <Placeholder xs={12} size="xs" bg="danger" />
-                        <Placeholder xs={12} size="xs" bg="danger" />
-                        <Placeholder xs={12} size="xs" bg="danger" />
+                        <Placeholder xs={12} size="lg" bg="light" />
+                        <Placeholder xs={12} size="lg" bg="light" />
+                        <Placeholder xs={12} bg="light" />
+                        <Placeholder xs={12} size="sm" bg="light" />
+                        <Placeholder xs={12} size="sm" bg="light" />
+                        <Placeholder xs={12} size="sm" bg="light" />
+                        <Placeholder xs={12} size="sm" bg="light" />
+                        <Placeholder xs={12} size="xs" bg="light" />
+                        <Placeholder xs={12} size="xs" bg="light" />
+                        <Placeholder xs={12} size="xs" bg="light" />
+                        <Placeholder xs={12} size="xs" bg="light" />
+                        <Placeholder xs={12} size="xs" bg="light" />
+                        <Placeholder xs={12} size="xs" bg="light" />
                     </Placeholder>
                 </Col>
             </Row>
