@@ -45,6 +45,10 @@
     background-color: #ffe036;
 }
 
+.bro-players-placeholder, .bro-awards-placeholder {
+    width: 20em;
+}
+
 .bro-players > .table, .bro-awards > .table {
     margin-bottom: 0;
     margin: auto;
@@ -69,4 +73,19 @@
 
 .bro-spinner > .component{
     margin-top: 5em;
+}
+
+.btn, .btn:disabled, .btn-primary, .btn-primary:disabled {
+    background-color: #ff4b3f;
+    border-color: #ff4b3f;
+}
+
+.btn:hover, .btn-primary:hover {
+    background-color: #ff4b3f;
+    border-color: #ff4b3f;
+    color: #0a182c;
+}
+
+.bro-b {
+    color: #ff4b3f;
 }

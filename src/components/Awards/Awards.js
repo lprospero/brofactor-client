@@ -14,46 +14,30 @@ const Awards = () => {
 
     const hasContent = awards && awards.length > 0;
     const placeholder = !hasContent ? (
-        <Container>
+        <Container className="bro-awards-placeholder">
             <Row>
                 <Col>
                     <Placeholder as="p" animation="glow">
-                        <Placeholder xs={12} size="lg" />
-                    </Placeholder>
-                </Col>
-                <Col>
-                    <Placeholder as="p" animation="glow">
-                        <Placeholder xs={12} size="lg" />
-                    </Placeholder>
-                </Col>
-                <Col>
-                    <Placeholder as="p" animation="glow">
-                        <Placeholder xs={12} size="lg" />
+                        <Placeholder xs={12} size="lg" bg="danger" />
                     </Placeholder>
                 </Col>
             </Row>
             <Row>
                 <Col>
                     <Placeholder as="p" animation="glow">
-                        <Placeholder xs={12} size="lg" />
-                        <Placeholder xs={12} />
-                        <Placeholder xs={12} size="sm" />
-                        <Placeholder xs={12} size="xs" />
-                    </Placeholder>
-                </Col>
-                <Col>
-                    <Placeholder as="p" animation="glow">
-                        <Placeholder xs={12} size="lg" />
-                        <Placeholder xs={12} />
-                        <Placeholder xs={12} size="sm" />
-                        <Placeholder xs={12} size="xs" />
-                    </Placeholder>                    </Col>
-                <Col>
-                    <Placeholder as="p" animation="glow">
-                        <Placeholder xs={12} size="lg" />
-                        <Placeholder xs={12} />
-                        <Placeholder xs={12} size="sm" />
-                        <Placeholder xs={12} size="xs" />
+                        <Placeholder xs={12} size="lg" bg="danger" />
+                        <Placeholder xs={12} size="lg" bg="danger" />
+                        <Placeholder xs={12} bg="danger" />
+                        <Placeholder xs={12} size="sm" bg="danger" />
+                        <Placeholder xs={12} size="sm" bg="danger" />
+                        <Placeholder xs={12} size="sm" bg="danger" />
+                        <Placeholder xs={12} size="sm" bg="danger" />
+                        <Placeholder xs={12} size="xs" bg="danger" />
+                        <Placeholder xs={12} size="xs" bg="danger" />
+                        <Placeholder xs={12} size="xs" bg="danger" />
+                        <Placeholder xs={12} size="xs" bg="danger" />
+                        <Placeholder xs={12} size="xs" bg="danger" />
+                        <Placeholder xs={12} size="xs" bg="danger" />
                     </Placeholder>
                 </Col>
             </Row>
