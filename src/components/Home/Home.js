@@ -111,7 +111,7 @@ const Home = () => {
         if (experience === 0 && showLoader) {
             return (
                 <div className="bro-spinner">
-                    <Spinner className="component" animation="border" variant="warning" />
+                    <Spinner className="component" animation="border" variant="danger" />
                 </div>
             );
         } else if (experience === 0 && !showLoader) {
