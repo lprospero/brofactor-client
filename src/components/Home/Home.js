@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPlayer, clearPlayers } from "../../actions/players";
 import { getAwards } from "../../actions/awards";
 import Login from "./Login";
+import Intro from "./Intro";
 import Player from "../Players/Player";
 import { Container, Col, Row, Table, ProgressBar, Spinner } from "react-bootstrap";
 
@@ -143,7 +144,7 @@ const Home = () => {
             );
         }
     } else {
-        return (<Login />)
+        return (<div><Intro /><Login /></div>)
     }
 }
 

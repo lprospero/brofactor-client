@@ -42,6 +42,22 @@
     margin: auto;
 }
 
+.bro-intro {
+    color: white;
+    max-width: 42em;
+    margin: auto;
+}
+
+.bro-intro-text {
+    font-size: 75px;
+    display:inline-block;
+}
+
+.bro-intro-img {
+    display: inline-block;
+    float: right;
+}
+
 .bro-comment {
     text-align: center;
 }
